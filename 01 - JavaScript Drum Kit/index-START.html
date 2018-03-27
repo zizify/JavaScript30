@@ -60,12 +60,15 @@
 <script>
 document.addEventListener('keydown', event => {
   const keyCode = event.keyCode;
+  const keyDiv = document.querySelector(`div[data-key='${keyCode}']`);
   const keyAudio = document.querySelector(`audio[data-key='${keyCode}']`);
 
   if (keyAudio) {
     keyAudio.play();
   }
-  
+
+  console.log(keyDiv);
+
 })
 </script>
 
