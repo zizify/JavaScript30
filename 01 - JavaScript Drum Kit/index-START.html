@@ -63,10 +63,21 @@ document.addEventListener('keydown', event => {
   const keyDiv = document.querySelector(`div[data-key='${keyCode}']`);
   const keyAudio = document.querySelector(`audio[data-key='${keyCode}']`);
 
-  keyDiv.classList.add('playing');
-
-  if (keyAudio) {
+  if (keyDiv && keyAudio) {
+    keyDiv.classList.add('playing');
     keyAudio.play();
+  }
+})
+
+document.addEventListener('keyup', event => {
+  const keyCode = event.keyCode;
+  const keyDiv = document.querySelector(`div[data-key='${keyCode}']`);
+  const keyAudio = document.querySelector(`audio[data-key='${keyCode}']`);
+
+  if (keyDiv && keyAudio) {
+    keyDiv.classList.remove('playing');
+    keyAudio.pause();
+    keyAudio.currentTime = 0;
   }
 })
 </script>
